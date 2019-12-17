@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never">
+  <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
+  <info>
+    <title>Deutschabteilung BFSU</title>
+    <title-short>de bfsu</title-short>
+    <id>http://www.zotero.org/styles/deutschabteilung-bfsu</id>
+    <link rel="self" href="http://www.zotero.org/styles/deutschabteilung-bfsu"/>
+    <contributor>
+      <name>Xu Zeming </name>
+      <email>zeming.xu@bfsu.edu.cn</email>
+    </contributor>
+    <category citation-format="note" field="germanistik"/>
+    <updated>2019-12-10T15:39:25+00:00</updated>
+  </info>
+  <macro name="author">
+    <names variable="author" suffix=": ">
+      <name delimiter="/" name-as-sort-order="all"/>
+    </names>
+  </macro>
+  <macro name="editor">
+    <names variable="editor" suffix=" (Hrsg.): ">
+      <name delimiter="/" name-as-sort-order="all"/>
+    </names>
+  </macro>
+  <macro name="translator">
+    <names variable="translator" prefix="( Übersetzung von " suffix=")">
+      <name delimiter="/" name-as-sort-order="all"/>
+    </names>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if type="book" match="any">
+        <text variable="title" font-style="italic"/>
+      </if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="container">
+    <choose>
+      <if type="chapter" match="any">
+        <group delimiter=", " prefix="in: ">
+          <group>
+            <text macro="editor"/>
+            <text variable="container-title" font-style="italic"/>
+          </group>
+          <text macro="publisher"/>
+          <date date-parts="year" form="text" variable="issued"/>
+          <text macro="page"/>
+        </group>
+      </if>
+      <else>
+        <group delimiter=", " prefix="in: ">
+          <text variable="container-title" font-style="italic"/>
+          <date date-parts="year" form="text" variable="issued"/>
+          <text variable="issue" prefix="Nr. "/>
+          <text macro="page"/>
+        </group>
+      </else>
+    </choose>
+  </macro>
+  <macro name="publisher">
+    <text variable="publisher-place" suffix=": "/>
+    <text variable="publisher"/>
+  </macro>
+  <macro name="page">
+    <text variable="page" prefix="S. "/>
+  </macro>
+  <macro name="edition">
+    <text variable="edition" suffix=". Auflage"/>
+  </macro>
+  <citation name-delimiter="" initialize-with=". " name-as-sort-order="all">
+    <layout delimiter="; " suffix=". ">
+      <choose>
+        <if type="book" match="any">
+          <group delimiter=", ">
+            <group>
+              <text macro="author"/>
+              <choose>
+                <if match="none" variable="author">
+                  <text macro="editor"/>
+                </if>
+              </choose>
+              <text macro="title"/>
+            </group>
+            <text macro="edition"/>
+            <text macro="translator"/>
+            <text macro="publisher"/>
+            <date date-parts="year" form="text" variable="issued"/>
+            <text macro="page"/>
+          </group>
+        </if>
+        <else-if type="chapter" match="any">
+          <group delimiter=", ">
+            <group>
+              <text macro="author"/>
+              <text macro="title"/>
+            </group>
+            <text macro="container"/>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <group>
+              <text macro="author"/>
+              <text macro="title"/>
+            </group>
+            <text macro="container"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+  <bibliography>
+    <layout suffix=". ">
+      <choose>
+        <if type="book" match="any">
+          <group delimiter=". ">
+            <group>
+              <text macro="author"/>
+              <choose>
+                <if match="none" variable="author">
+                  <text macro="editor"/>
+                </if>
+              </choose>
+              <text macro="title"/>
+            </group>
+            <text macro="edition"/>
+            <text macro="translator"/>
+            <text macro="publisher"/>
+            <date date-parts="year" form="text" variable="issued"/>
+          </group>
+        </if>
+        <else-if type="chapter" match="any">
+          <group delimiter=", ">
+            <group>
+              <text macro="author"/>
+              <text macro="title"/>
+            </group>
+            <text macro="container"/>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <group>
+              <text macro="author"/>
+              <text macro="title"/>
+            </group>
+            <text macro="container"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>
