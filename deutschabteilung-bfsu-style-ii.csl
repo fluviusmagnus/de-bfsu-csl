@@ -11,7 +11,7 @@
       <email>zeming.xu@bfsu.edu.cn</email>
     </contributor>
     <category citation-format="note" field="germanistik"/>
-    <updated>2019-12-10T15:39:25+00:00</updated>
+    <updated>2019-12-17T13:21:17+00:00</updated>
   </info>
   <macro name="author">
     <names variable="author" suffix=": ">
@@ -89,7 +89,7 @@
             <text macro="translator"/>
             <text macro="publisher"/>
             <date date-parts="year" form="text" variable="issued"/>
-            <text macro="page"/>
+            <text variable="locator" prefix="S. "/>
           </group>
         </if>
         <else-if type="chapter" match="any">
@@ -97,6 +97,7 @@
             <group>
               <text macro="author"/>
               <text macro="title"/>
+              <text variable="locator" prefix=", S. "/>
             </group>
             <text macro="container"/>
           </group>
@@ -106,6 +107,7 @@
             <group>
               <text macro="author"/>
               <text macro="title"/>
+              <text variable="locator" prefix=", S. "/>
             </group>
             <text macro="container"/>
           </group>
