@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<style class="note" version="1.0" demote-non-dropping-particle="never" default-locale="de" xmlns="http://purl.org/net/xbiblio/csl">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never" default-locale="de">
   <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
   <info>
     <title>Deutschabteilung BFSU Style I</title>
@@ -10,7 +10,7 @@
       <name>Tianhu Zhang</name>
       <email>zszth@126.com</email>
     </author>
-    <updated>2019-12-17T13:05:42+00:00</updated>
+    <updated>2019-12-17T14:32:14+00:00</updated>
   </info>
   <macro name="author-short">
     <names variable="author">
@@ -42,7 +42,7 @@
   <bibliography>
     <layout>
       <choose>
-        <if type="book" match="any">
+        <if type="book thesis" match="any">
           <text macro="author" suffix=", "/>
           <date date-parts="year" form="text" variable="issued" suffix=": "/>
           <text variable="title" font-style="italic" suffix=". "/>
@@ -50,7 +50,14 @@
             <name delimiter="/" suffix=" " name-as-sort-order="all"/>
           </names>
           <text variable="edition" suffix=". Auflage. "/>
-          <text variable="publisher-place" suffix=". "/>
+          <choose>
+            <if type="thesis" match="any">
+              <text variable="publisher" suffix=". "/>
+            </if>
+            <else-if type="book" match="any">
+              <text variable="publisher-place" suffix=". "/>
+            </else-if>
+          </choose>
         </if>
         <else-if type="article article-journal article-magazine article-newspaper" match="any">
           <text macro="author" suffix=", "/>
